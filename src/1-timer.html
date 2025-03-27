@@ -11,7 +11,29 @@
 <body>
     <section>
         <div class="container">
+            <div class="npt-bttn">
+                <input class="npt" type="text" id="datetime-picker" />
+                <button class="bttn" type="button" data-start disabled>Start</button>
+            </div>
             
+            <div class="timer">
+                <div class="field">
+                    <span class="dys value" data-days>00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="field">
+                    <span class="hrs value" data-hours>00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="field">
+                    <span class="mnts value" data-minutes>00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="field">
+                    <span class="scnds value" data-seconds>00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
         </div>
     </section>
     <script type="module" src="./js/1-timer.js"></script>
