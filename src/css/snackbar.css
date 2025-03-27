@@ -1,0 +1,87 @@
+.lbl {
+font-family: "Montserrat", sans-serif;
+display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+flex-direction: column;
+gap: 8px;
+font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: 0.04em;
+color: #2e2f42;
+}
+.nmbr-npt {
+    width: 360px;
+    height: 40px;
+    border-radius: 8px;
+    border-color: #808080;
+    border-width: 1px;
+    padding-left: 16px;
+    box-sizing: border-box;
+    }
+.nmbr-npt:hover,
+.fldst:hover {
+    border-color: black;
+}
+.fldst {
+    margin-top: 16px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    max-width: 360px;
+    border-color: #808080;
+    border-width: 1px;
+    box-sizing: border-box;
+    padding: 24px 48px 8px 48px;
+}
+.rd-npt {
+    width: 20px;
+    height: 20px;
+}
+.rd-npts {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+}
+.lbls {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 8px;
+}
+.crt-ntfctn-bttn {
+    width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    border-radius: 8px;
+    height: 40px;
+    border: none;
+    background: #4e75ff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+.crt-ntfctn-bttn:hover {
+    background-color: #6C8CFF;
+}
+.lgnd {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+    font-family: "Montserrat", sans-serif;
+}

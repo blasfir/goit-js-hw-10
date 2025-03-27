@@ -4,7 +4,7 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 let userSelectedDate = null;
-let startButton = document.querySelector(".bttn");
+const startButton = document.querySelector(".bttn");
 const inputEl = document.querySelector(".npt");
 
 const options = {
