@@ -32,8 +32,16 @@ const options = {
                 startButton.disabled = false;
             })
             .catch(error => iziToast.show({
-                message: error
-                
+                message: error,
+                messageColor: '#ffffff',
+                messageSize: '16px',
+                messageLineHeight: '64px',
+                backgroundColor: '#EF4040',
+                iconColor: '#ffffff',
+                maxWidth: '302px',
+                position: 'topRight',
+                progressBarColor: '#B51B1B',
+                iconUrl: "../img/group.svg"
              }))
     }    
 };
