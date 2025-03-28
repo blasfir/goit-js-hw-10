@@ -2,23 +2,59 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const cnButton = document.querySelector(".crt-ntfctn-bttn");
-const labelEL = document.querySelector(".lbl");
+const formEl = document.querySelector(".form");
+const numberInput = document.querySelector(".nmbr-npt");
 const fulfilled = document.querySelector(".flflld");
-const rejected = document.querySelector(".rjctd");
+
+iziToast.show({
+    message: 'Welcome!',
+    messageColor: '#ffffff',
+    messageSize: '16px',
+    messageLineHeight: '64px',
+    backgroundColor: '#0099FF',
+    iconColor: '#ffffff',
+    position: 'topRight',
+    progressBarColor: '#0099FF',
+    iconUrl: "../img/bi_bell.svg"
+});
 
 cnButton.addEventListener("click", event => {
+    if (numberInput.value.trim() === "") {
+        iziToast.show({
+            message: 'You forgot important data',
+            messageColor: '#ffffff',
+            messageSize: '16px',
+            messageLineHeight: '64px',
+            backgroundColor: '#FFA000',
+            iconColor: '#ffffff',
+            position: 'topRight',
+            progressBarColor: '#FFA000',
+            iconUrl: "../img/bi_exclamation-triangle.svg"
+        });
+    };
+});
+
+numberInput.addEventListener("click", event => { 
+    numberInput.style.borderColor = "#4E75FF";
+});
+
+
+formEl.addEventListener("submit", event => {
+    event.preventDefault();
+
     const promise2 = new Promise((resolve, reject) => {
-        const delay = labelEL.textContent;
+        const delay = numberInput.value;
 
         setTimeout(() => {
             if (fulfilled.checked) {
-                resolve("Fulfilled promise in ${delay}ms");
+                resolve("Fulfilled promise in " + delay + "ms");
             } else {
-                reject("Rejected promise in ${delay}ms");
+                reject("Rejected promise in " + delay + "ms");
             }
-        }, parselnt(delay));
+        }, parseInt(delay));
+    });
 
-        promise2
+    promise2
         .then((value) => {
             iziToast.show({
             message: value,
@@ -43,5 +79,4 @@ cnButton.addEventListener("click", event => {
             progressBarColor: '#B51B1B',
             iconUrl: "../img/group.svg"
         }))
-    });
 });
