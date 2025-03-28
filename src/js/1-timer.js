@@ -2,6 +2,8 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import groupSvg from "../img/group.svg";
+
 
 let userSelectedDate = null;
 const startButton = document.querySelector(".bttn");
@@ -14,25 +16,15 @@ const options = {
     minuteIncrement: 1,
     onClose(selectedDates) {
         userSelectedDate = selectedDates[0];
-        const promise = new Promise((resolve, reject) => {
+
             const time = Date.now();
             const selectedDateTime = userSelectedDate.getTime();
-            setTimeout(() => {
-                if (time < selectedDateTime) {
-                    resolve("Selected valid date");
-                } else {
-                    reject("Please choose a date in the future");
-                }
-            }, 0);
-        });
-
-
-        promise
-            .then((value) => {
+           
+            if (time < selectedDateTime) {
                 startButton.disabled = false;
-            })
-            .catch(error => iziToast.show({
-                message: error,
+            } else {
+                iziToast.show({
+                message: "Please choose a date in the future",
                 messageColor: '#ffffff',
                 messageSize: '16px',
                 messageLineHeight: '64px',
@@ -40,8 +32,9 @@ const options = {
                 iconColor: '#ffffff',
                 position: 'topRight',
                 progressBarColor: '#B51B1B',
-                iconUrl: "../img/group.svg"
-             }))
+                iconUrl: groupSvg
+                })
+            }
     }    
 };
 

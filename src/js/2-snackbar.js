@@ -1,5 +1,9 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import groupSvg from "../img/group.svg";
+import biBellSvg from "../img/bi_bell.svg";
+import biExclamationTriangleSvg from "../img/bi_exclamation-triangle.svg";
+import biCheck2CircleSvg from "../img/bi_check2-circle.svg";
 
 const cnButton = document.querySelector(".crt-ntfctn-bttn");
 const formEl = document.querySelector(".form");
@@ -15,7 +19,7 @@ iziToast.show({
     iconColor: '#ffffff',
     position: 'topRight',
     progressBarColor: '#0099FF',
-    iconUrl: "../img/bi_bell.svg"
+    iconUrl: biBellSvg
 });
 
 cnButton.addEventListener("click", event => {
@@ -29,7 +33,7 @@ cnButton.addEventListener("click", event => {
             iconColor: '#ffffff',
             position: 'topRight',
             progressBarColor: '#FFA000',
-            iconUrl: "../img/bi_exclamation-triangle.svg"
+            iconUrl: biExclamationTriangleSvg
         });
     };
 });
@@ -47,17 +51,18 @@ formEl.addEventListener("submit", event => {
 
         setTimeout(() => {
             if (fulfilled.checked) {
-                resolve("Fulfilled promise in " + delay + "ms");
+                resolve(delay);
             } else {
-                reject("Rejected promise in " + delay + "ms");
+                reject(delay);
             }
         }, parseInt(delay));
     });
 
     promise2
         .then((value) => {
+            const resolveMassage = "Fulfilled promise in " + value + "ms";
             iziToast.show({
-            message: value,
+            message: resolveMassage,
             messageColor: '#ffffff',
             messageSize: '16px',
             messageLineHeight: '64px',
@@ -65,18 +70,21 @@ formEl.addEventListener("submit", event => {
             iconColor: '#ffffff',
             position: 'topRight',
             progressBarColor: '#326101',
-            iconUrl: "../img/bi_check2-circle.svg"
+            iconUrl: biCheck2CircleSvg
             })
         })
-        .catch(error => iziToast.show({
-            message: error,
-            messageColor: '#ffffff',
-            messageSize: '16px',
-            messageLineHeight: '64px',
-            backgroundColor: '#EF4040',
-            iconColor: '#ffffff',
-            position: 'topRight',
-            progressBarColor: '#B51B1B',
-            iconUrl: "../img/group.svg"
-        }))
+        .catch((error) => {
+            const rejectMassage = "Fulfilled promise in " + error + "ms";
+            iziToast.show({
+                message: rejectMassage,
+                messageColor: '#ffffff',
+                messageSize: '16px',
+                messageLineHeight: '64px',
+                backgroundColor: '#EF4040',
+                iconColor: '#ffffff',
+                position: 'topRight',
+                progressBarColor: '#B51B1B',
+                iconUrl: groupSvg
+            })
+        })
 });
