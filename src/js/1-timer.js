@@ -20,7 +20,7 @@ const options = {
             const time = Date.now();
             const selectedDateTime = userSelectedDate.getTime();
            
-            if (time < selectedDateTime) {
+            if (time <= selectedDateTime) {
                 startButton.disabled = false;
             } else {
                 iziToast.show({
@@ -78,5 +78,5 @@ startButton.addEventListener("click", event => {
         hoursSpan.textContent = String(convertedMs.hours).padStart(2, "0");
         minutesSpan.textContent = String(convertedMs.minutes).padStart(2, "0");
         secondsSpan.textContent = String(convertedMs.seconds).padStart(2, "0");
-    });
-}, 1000);
+    }, 1000);
+});

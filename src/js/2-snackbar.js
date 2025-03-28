@@ -74,7 +74,7 @@ formEl.addEventListener("submit", event => {
             })
         })
         .catch((error) => {
-            const rejectMassage = "Fulfilled promise in " + error + "ms";
+            const rejectMassage = "Rejected promise in " + error + "ms";
             iziToast.show({
                 message: rejectMassage,
                 messageColor: '#ffffff',
